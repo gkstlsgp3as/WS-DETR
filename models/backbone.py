@@ -180,30 +180,30 @@ class DINOBackbone(nn.Module):
 
         ## multi-scale
         if self.return_layers:
+            # attn = (2,384,w,h)
             attn_1st = self.conv_mult(attn) # 2, 384, w/2, h/2
             attn_2nd = self.conv_mult(attn_1st) # 2, 384, w/4, h/4
             #attn_3rd = self.conv_mult(attn_2nd) # 2, 384, w/8, h/8
             
-            attn = self.conv(attn) # 2, 256, w, h
-            attn = self.conv2(attn) # 2, 256, w/2, h/2
-            attn_1st = self.conv3(attn_1st) # 2, 256, w/4, h/4
-            attn_2nd = self.conv4(attn_2nd) # 2, 256, w/8, h/8
+            attn = self.conv2(attn) # 2, 64, w, h
+            attn_1st = self.conv3(attn_1st) # 2, 128, w/2, h/2
+            attn_2nd = self.conv4(attn_2nd) # 2, 256, w/4, h/4
             #cls_attn = self.conv(cls_attn).flatten(2).permute(1,0,1) # ex. torch.Size([2, 256, 9435]) > 4960, 2, 256
             # RuntimeError: Given groups=1, weight of size [256, 256, 1, 1], expected input[1, 9435, 2, 256] to have 256 channels, but got 9435 channels instead
             
-            xs = { 'last': attn, '1st': attn_1st, '2nd': attn_2nd } 
+            xs = { 'layer0': attn, 'layer1': attn_1st, 'layer2': attn_2nd } 
         
         else: 
             attn = self.conv(attn) # 2, 256, w, h
             xs = { 'last': attn }
-
+        
         out: Dict[str, NestedTensor] = {}
         for name, x in xs.items():
             m = tensor_list.mask
             assert m is not None
             mask = F.interpolate(m[None].float(), size=x.shape[-2:]).to(torch.bool)[0]
             out[name] = NestedTensor(x, mask)
-
+        
         return out
 
 class Joiner(nn.Sequential):

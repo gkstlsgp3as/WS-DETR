@@ -141,6 +141,7 @@ class DeformableDETR(nn.Module):
         """
         if not isinstance(samples, NestedTensor):
             samples = nested_tensor_from_tensor_list(samples)
+        
         features, pos = self.backbone(samples)
 
         srcs = []

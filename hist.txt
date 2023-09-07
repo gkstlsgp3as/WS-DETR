@@ -1,0 +1,1000 @@
+ 1016  conda activate yolo_obb2
+ 1017  python detect.py --weights ./models/weights/poly_best.pt --img-size 640 --conf 0.01 --source ./inference/images/ --iou-thres 0.3 --polygon --save-txt --device 2,3 --hide-labels
+ 1018  python
+ 1019  python detect.py --weights ./models/weights/poly_best.pt --img-size 640 --conf 0.01 --source ./inference/images/ --iou-thres 0.3 --polygon --save-txt --device 2,3 --hide-labels
+ 1020  git add .
+ 1021  git commit -m "upgrade performance"
+ 1022  git push origin main
+ 1023  cd /home/shhan
+ 1024  ls
+ 1025  cd oicr
+ 1026  ls
+ 1027  conda deactivate
+ 1028  conda activate oicr
+ 1029  git pull
+ 1030  git remove -V
+ 1031  git remote -V
+ 1032  git remote -v
+ 1033  python main.py --backbone resnet50 --no_aux_loss --output_dir ./output/resnet50_wsod --wsod
+ 1034  ls
+ 1035  vi ./datasets/coco.py
+ 1036  vi main.py
+ 1037  ls
+ 1038  python main.py --backbone resnet50 --no_aux_loss --output_dir ./output/resnet50_wsod --wsod
+ 1039  kill %1
+ 1040  python main.py --backbone resnet50 --no_aux_loss --output_dir ./output/resnet50_wsod --wsod
+ 1041  killl %1
+ 1042  kill %1
+ 1043  python main.py --backbone resnet50 --no_aux_loss --output_dir ./output/resnet50_wsod --wsod
+ 1044  python -m torch.distributed.launch --nproc_per_node=2 main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query
+ 1045  CUDA_VISIBLE_DEVICES=2,3 python -m torch.distributed.launch --nproc_per_node=2 main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query
+ 1046  conda activate yolo_obb2
+ 1047  cd /data/BRIDGE/c
+ 1048  cd /data/BRIDGE/cycleGAN/
+ 1049  python detect.py --weights ./models/weights/poly_float_exp278.pt --img-size 640 --conf 0.01 --source ./inference/images/ --iou-thres 0.3 --polygon --save-txt --device 0 --hide-labels
+ 1050  python detect.py --weights ./models/weights/poly_line_exp_epoch193.pt --img-size 640 --conf 0.01 --source ./inference/images/ --iou-thres 0.3 --polygon --save-txt --device 0 --hide-labels
+ 1051  cp -r /data/BRIDGE/yolo-rotate/ /data/BRIDGE/cycleGAN/
+ 1052  cp -r /data/BRIDGE/yolo-rotate/inference /data/BRIDGE/cycleGAN/inference
+ 1053  python detect.py --weights ./models/weights/poly_line_exp_epoch193.pt --img-size 640 --conf 0.01 --source ./inference/images/ --iou-thres 0.3 --polygon --save-txt --device 0 --hide-labels
+ 1054  vi utils/datasets.py
+ 1055  python detect.py --weights ./models/weights/poly_line_exp_epoch193.pt --img-size 640 --conf 0.01 --source ./inference/images/ --iou-thres 0.3 --polygon --save-txt --device 0 --hide-labels
+ 1056  python detect.py --weights ./models/weights/best.pt --img-size 640 --conf 0.01 --source ./inference/images/ --iou-thres 0.3 --polygon --save-txt --device 0 --hide-labels
+ 1057  python detect.py --weights ./models/weights/best.pt --img-size 640 --conf 0.5 --source ./inference/images/ --iou-thres 0.3 --polygon --save-txt --device 0 --hide-labels
+ 1058  python detect.py --weights ./models/weights/best.pt --img-size 640 --conf 0.3 --source ./inference/images/ --iou-thres 0.3 --polygon --save-txt --device 0 --hide-labels
+ 1059  python detect.py --weights ./models/weights/best.pt --img-size 640 --conf 0.01 --source ./inference/images/ --iou-thres 0.3 --polygon --save-txt --device 0 --hide-labels
+ 1060  python detect.py --weights ./models/weights/poly_line_exp_epoch193.pt --img-size 640 --conf 0.3 --source ./inference/images/ --iou-thres 0.3 --polygon --save-txt --device 0 --hide-labels
+ 1061  python detect.py --weights ./models/weights/poly_line_exp_epoch193.pt --img-size 640 --conf-thres 0.3 --source ./inference/images/ --iou-thres 0.3 --polygon --save-txt --device 0 --hide-labels
+ 1062  python detect.py --weights ./models/weights/poly_line_exp_epoch193.pt --img-size 640 --conf-thres 0.1 --source ./inference/images/ --iou-thres 0.3 --polygon --save-txt --device 0 --hide-labels
+ 1063  python detect.py --weights ./models/weights/poly_line_exp_epoch193.pt --img-size 640 --conf-thres 0.1 --source ./inference/images/15400_3960_16040_4600_CABB.tif --iou-thres 0.3 --polygon --save-txt --device 0 --hide-labels
+ 1064  python detect.py --weights ./models/weights/poly_line_exp_epoch193.pt --img-size 640 --conf-thres 0.1 --source ./inference/images/15400_3960_16040_4600_CABB.tif --iou-thres 0.3 --polygon --save-txt --device 0 --hide-labels --crop
+ 1065  python ./CycleGAN/train.py --dataroot ./datasets/sar --name sar_cyclegan --model cycle_gan --dataset_mode aligned --continue_train --save_latest_freq 10 --save_epoch_freq 1 --save_by_iter --display_freq 10
+ 1066  cd CycleGAN/
+ 1067  python ./CycleGAN/train.py --dataroot ./datasets/sar --name sar_cyclegan --model cycle_gan --dataset_mode aligned --continue_train --save_latest_freq 10 --save_epoch_freq 1 --save_by_iter --display_freq 10
+ 1068  python train.py --dataroot ./datasets/sar --name sar_cyclegan --model cycle_gan --dataset_mode aligned --continue_train --save_latest_freq 10 --save_epoch_freq 1 --save_by_iter --display_freq 10
+ 1069  python train.py --dataroot ./datasets/sar --name sar_cyclegan --model cycle_gan --dataset_mode aligned --continue_train --save_latest_freq 10 --save_epoch_freq 1 --save_by_iter --display_freq 10 --continue_train
+ 1070  python train.py --dataroot ./datasets/sar --name sar_cyclegan --model cycle_gan --dataset_mode aligned --continue_train --save_latest_freq 10 --save_epoch_freq 1 --display_freq 10 --continue_train
+ 1071  cd ..
+ 1072  cd yolo_obb
+ 1073  cd yolo_rotate
+ 1074  la
+ 1075  cd yolo-rotate
+ 1076  history
+ 1077  python train.py --cfg yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --adam --label-smoothing 0.1 --mode horz --divide
+ 1078  cd "oicr"
+ 1079  git add .
+ 1080  git commit -m "update queries"
+ 1081  git push origin main
+ 1082  git add .
+ 1083  git commit -m "update engine.py"
+ 1084  git push origin main
+ 1085  nvidia-smi
+ 1086  conda activate yolo_obb2
+ 1087  cd /data/BRIDGE/cycleGAN/
+ 1088  nvidia-smi
+ 1089  cd ..
+ 1090  cd yolo-rotate/
+ 1091  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode bbox_adjust
+ 1092  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode bbox_adjust --divide
+ 1093  python
+ 1094  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode bbox_adjust --divide
+ 1095  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode water_bbox
+ 1096  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode water_bbox --divide
+ 1097  history
+ 1098  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode water_bbox --divide
+ 1099  python
+ 1100  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode water_bbox
+ 1101  nohup python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode water_bbox &
+ 1102  disown -h
+ 1103  exit
+ 1104  cd "/data/BRIDGE/cycleGAN/CycleGAN"
+ 1105  cd /home/shhan/oicr
+ 1106  conda activate oicr
+ 1107  CUDA_VISIBLE_DEVICES=2,3 python -m torch.distributed.launch --nproc_per_node=2 main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query
+ 1108  CUDA_VISIBLE_DEVICES=2,3 python -m torch.distributed.launch --nproc_per_node=2 main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query --mean-query
+ 1109  CUDA_VISIBLE_DEVICES=2,3 python -m torch.distributed.launch --nproc_per_node=2 main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query --mean_query
+ 1110  CUDA_VISIBLE_DEVICES=2,3 python main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query --mean_query
+ 1111  kill %1
+ 1112  CUDA_VISIBLE_DEVICES=2,3 python main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query --mean_query
+ 1113  kill %1
+ 1114  CUDA_VISIBLE_DEVICES=2,3 python main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query --mean_query
+ 1115  CUDA_VISIBLE_DEVICES=2,3 python main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query --mean_query --resume ./outputs/resnet50_wsod_query/checkpoint.pth
+ 1116  CUDA_VISIBLE_DEVICES=2,3 python main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query --mean_query
+ 1117  conda activate yolo_obb2
+ 1118  cd /data/BRIDGE
+ 1119  ls
+ 1120  cd cycleGAN
+ 1121  ls
+ 1122  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 
+ 1123  nvidia-smi
+ 1124  python inference.py --dataroot /data/BRIDGE/yolo-rotate/data/images/sentinel/water_ref/train --name sar_cyclegan --model cycle_gan --no_dropout --results_dir /data/BRIDGE/cycleGAN/data/images/sentinel/edge_ref/train --direction AtoB --checkpoints_dir /data/BRIDGE/cycleGAN/pytorch-CycleGAN-and-pix2pix/checkpoints/sar_cyclegan --gpu_ids 0
+ 1125  ls
+ 1126  cd pytorch-CycleGAN-and-pix2pix/
+ 1127  python inference.py --dataroot /data/BRIDGE/yolo-rotate/data/images/sentinel/water_ref/train --name sar_cyclegan --model cycle_gan --no_dropout --results_dir /data/BRIDGE/cycleGAN/data/images/sentinel/edge_ref/train --direction AtoB --checkpoints_dir /data/BRIDGE/cycleGAN/pytorch-CycleGAN-and-pix2pix/checkpoints/sar_cyclegan --gpu_ids 0
+ 1128  python inference.py --dataroot /data/BRIDGE/yolo-rotate/data/images/sentinel/water_ref/test --name sar_cyclegan --model cycle_gan --no_dropout --results_dir /data/BRIDGE/cycleGAN/data/images/sentinel/edge_ref/test --direction AtoB --checkpoints_dir /data/BRIDGE/cycleGAN/pytorch-CycleGAN-and-pix2pix/checkpoints/sar_cyclegan --gpu_ids 0
+ 1129  python inference.py --dataroot /data/BRIDGE/yolo-rotate/data/images/sentinel/water_ref/valid --name sar_cyclegan --model cycle_gan --no_dropout --results_dir /data/BRIDGE/cycleGAN/data/images/sentinel/edge_ref/valid --direction AtoB --checkpoints_dir /data/BRIDGE/cycleGAN/pytorch-CycleGAN-and-pix2pix/checkpoints/sar_cyclegan --gpu_ids 0
+ 1130  cd ..
+ 1131  ls
+ 1132  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 
+ 1133  python
+ 1134  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 
+ 1135  nvidia-smi
+ 1136  cd /home/oicr
+ 1137  cd /home/shhan/oicr
+ 1138  git add .
+ 1139  git commit -m "update query"
+ 1140  git push origin main
+ 1141  cd ..
+ 1142  ls
+ 1143  git clone https://github.com/gkstlsgp3as/DETR_WSOD.git
+ 1144  ls
+ 1145  cd DETR_WSOD/
+ 1146  cd ..
+ 1147  git clone https://github.com/fundamentalvision/Deformable-DETR.git
+ 1148  ls
+ 1149  rm -rf DETR_WSOD/
+ 1150  cd /data/BRIDGE/cc
+ 1151  cd /data/BRIDGE/cycleGAN/
+ 1152  ls
+ 1153  cd CycleGAN/
+ 1154  ls
+ 1155  nvidia-smi
+ 1156  python inference.py --dataroot /data/BRIDGE/yolo-rotate/data/images/sentinel/water_line/train --name sar_cyclegan --model cycle_gan --no_dropout --results_dir /data/BRIDGE/cycleGAN/data/images/sentinel/water_edge/train --direction AtoB --checkpoints_dir /data/BRIDGE/cycleGAN/CycleGAN/checkpoints/sar_cyclegan --gpu_ids 1
+ 1157  python inference.py --dataroot /data/BRIDGE/yolo-rotate/data/images/sentinel/water_line/test --name sar_cyclegan --model cycle_gan --no_dropout --results_dir /data/BRIDGE/cycleGAN/data/images/sentinel/water_edge/test --direction AtoB --checkpoints_dir /data/BRIDGE/cycleGAN/CycleGAN/checkpoints/sar_cyclegan --gpu_ids 1
+ 1158  python inference.py --dataroot /data/BRIDGE/yolo-rotate/data/images/sentinel/water_line/valid --name sar_cyclegan --model cycle_gan --no_dropout --results_dir /data/BRIDGE/cycleGAN/data/images/sentinel/water_edge/valid --direction AtoB --checkpoints_dir /data/BRIDGE/cycleGAN/CycleGAN/checkpoints/sar_cyclegan --gpu_ids 1
+ 1159  cd ..
+ 1160  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode water_edge
+ 1161  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water_edge
+ 1162  python train.py --cfg ./cfg/training/poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water_edge
+ 1163  python
+ 1164  python train.py --cfg ./cfg/training/poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water_edge
+ 1165  cd CycleGAN/
+ 1166  python inference.py --dataroot /data/BRIDGE/yolo-rotate/data/images/sentinel/water_line/train --name sar_cyclegan --model cycle_gan --no_dropout --results_dir /data/BRIDGE/cycleGAN/data/images/sentinel/water_edge/train --direction AtoB --checkpoints_dir /data/BRIDGE/cycleGAN/CycleGAN/checkpoints/sar_cyclegan --gpu_ids 1
+ 1167  python inference.py --dataroot /data/BRIDGE/yolo-rotate/data/images/sentinel/water_bbox/train --name sar_cyclegan --model cycle_gan --no_dropout --results_dir /data/BRIDGE/cycleGAN/data/images/sentinel/water_edge/train --direction AtoB --checkpoints_dir /data/BRIDGE/cycleGAN/CycleGAN/checkpoints/sar_cyclegan --gpu_ids 1
+ 1168  python inference.py --dataroot /data/BRIDGE/yolo-rotate/data/images/sentinel/water_bbox/test --name sar_cyclegan --model cycle_gan --no_dropout --results_dir /data/BRIDGE/cycleGAN/data/images/sentinel/water_edge/test --direction AtoB --checkpoints_dir /data/BRIDGE/cycleGAN/CycleGAN/checkpoints/sar_cyclegan --gpu_ids 1
+ 1169  python inference.py --dataroot /data/BRIDGE/yolo-rotate/data/images/sentinel/water_bbox/valid --name sar_cyclegan --model cycle_gan --no_dropout --results_dir /data/BRIDGE/cycleGAN/data/images/sentinel/water_edge/valid --direction AtoB --checkpoints_dir /data/BRIDGE/cycleGAN/CycleGAN/checkpoints/sar_cyclegan --gpu_ids 1
+ 1170  cd ..
+ 1171  python
+ 1172  python train.py --cfg ./cfg/training/poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water_edge
+ 1173  python
+ 1174  python train.py --cfg ./cfg/training/poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water_edge
+ 1175  cd CycleGAN/
+ 1176  python inference.py --dataroot /data/BRIDGE/yolo-rotate/data/images/sentinel/water_ref/train --name sar_cyclegan --model cycle_gan --no_dropout --results_dir /data/BRIDGE/cycleGAN/data/images/sentinel/water_edge/train --direction AtoB --checkpoints_dir /data/BRIDGE/cycleGAN/CycleGAN/checkpoints/sar_cyclegan --gpu_ids 1
+ 1177  python inference.py --dataroot /data/BRIDGE/yolo-rotate/data/images/sentinel/water_ref/test --name sar_cyclegan --model cycle_gan --no_dropout --results_dir /data/BRIDGE/cycleGAN/data/images/sentinel/water_edge/test --direction AtoB --checkpoints_dir /data/BRIDGE/cycleGAN/CycleGAN/checkpoints/sar_cyclegan --gpu_ids 1
+ 1178  python inference.py --dataroot /data/BRIDGE/yolo-rotate/data/images/sentinel/water_ref/valid --name sar_cyclegan --model cycle_gan --no_dropout --results_dir /data/BRIDGE/cycleGAN/data/images/sentinel/water_edge/valid --direction AtoB --checkpoints_dir /data/BRIDGE/cycleGAN/CycleGAN/checkpoints/sar_cyclegan --gpu_ids 1
+ 1179  cd ..
+ 1180  python
+ 1181  python train.py --cfg ./cfg/training/poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water_edge
+ 1182  python train.py --cfg ./cfg/training/poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water_edge --divide
+ 1183  python
+ 1184  python train.py --cfg ./cfg/training/poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water_edge --divide
+ 1185  nvidia-smi
+ 1186  ps -ef | grep python
+ 1187  nvidia-smi
+ 1188  fg
+ 1189  fg 1678724
+ 1190  cd /data/BRIDGE/cycleGAN/
+ 1191  conda activate yolo_obb2
+ 1192  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode water_bbox
+ 1193  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water --divide
+ 1194  cd data
+ 1195  ls
+ 1196  cd images
+ 1197  ls
+ 1198  cd sentinel/
+ 1199  ls
+ 1200  rm -rf water
+ 1201  cd ..
+ 1202  cd labels
+ 1203  ls
+ 1204  cd sentinel/
+ 1205  ls
+ 1206  rm -rf water
+ 1207  cd ..
+ 1208  cd CycleGAN/
+ 1209  ls
+ 1210  cd datasets
+ 1211  ls
+ 1212  cd water
+ 1213  ls
+ 1214  rm -rf *
+ 1215  cd ..
+ 1216  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water --divide
+ 1217  cd "/data/BRIDGE"
+ 1218  conda activate yolo_obb2
+ 1219  cd yolo-rotate/
+ 1220  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode water_bbox
+ 1221  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode water --divide
+ 1222  cd "/data/BRIDGE/cycleGAN"
+ 1223  cd ..
+ 1224  cd yolo-rotate/
+ 1225  conda activate yolo_obb2
+ 1226  ps -ef |grep python
+ 1227  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode water divide
+ 1228  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode water --divide
+ 1229  conda activate yolo_obb2
+ 1230  cd /data/BRIDGE/yolo-rotate/
+ 1231  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode water --divide
+ 1232  ls
+ 1233  cd data
+ 1234  ls
+ 1235  cd images
+ 1236  ls
+ 1237  cd sentinel/
+ 1238  ls
+ 1239  cd water
+ 1240  ls
+ 1241  rm -rf train
+ 1242  mkdir train
+ 1243  cd ..
+ 1244  cd labels
+ 1245  ls
+ 1246  cd sentinel/
+ 1247  ls
+ 1248  cd water
+ 1249  ls
+ 1250  rm -rf train
+ 1251  mkdir train
+ 1252  cd ..
+ 1253  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode water --divide
+ 1254  history
+ 1255  ython train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smo
+ 1256  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode water 
+ 1257  python
+ 1258  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode water 
+ 1259  cd "/data/BRIDGE/yolo-rotate"
+ 1260  conda activate yolo_obb2
+ 1261  cd ..
+ 1262  ls
+ 1263  cd RTC
+ 1264  ls
+ 1265  conda install -c conda-forge isce3
+ 1266  git clone https://github.com/opera-adt/s1-reader.git s1-reader
+ 1267  ls
+ 1268  cd s1-reader
+ 1269  ls
+ 1270  reader
+ 1271  conda install -c conda-forge --file s1-reader/requirements.txtcd ..
+ 1272  cd ..
+ 1273  conda install -c conda-forge --file s1-reader/requirements.txt
+ 1274  pip install packaging
+ 1275  pip nstall lxml
+ 1276  pip install lxml
+ 1277  python -m pip install ./s1-reader
+ 1278  python
+ 1279  python -V
+ 1280  conda deactivate
+ 1281  conda create -n rtc python>=3.8 gdal 
+ 1282  conda create -n rtc python==3.8.1 gdal 
+ 1283  conda activate rtc
+ 1284  python -V
+ 1285  conda install -c conda-forge isce3
+ 1286  y
+ 1287  conda install -c conda-forge isce3
+ 1288  conda deactivate
+ 1289  conda env remove -n rtc
+ 1290  conda create -n rtc python==3.8.1 gdal
+ 1291  conda activate rtc
+ 1292  conda install -c conda-forge isce3
+ 1293  conda install -c conda-forge --file s1-reader/requirements.txt 
+ 1294  python -m pip install ./s1-reader
+ 1295  python -m pip install ./RTC
+ 1296  ls
+ 1297  cd ..
+ 1298  python -m pip install ./RTC
+ 1299  pip install protobuf
+ 1300  pip install entrypoints
+ 1301  pip install tornado
+ 1302  pip install chardet
+ 1303  pip nstall click
+ 1304  pip install click
+ 1305  pip install keyring
+ 1306  pip install pexpect
+ 1307  pip install pyxdg
+ 1308  python -m pip install ./RTC
+ 1309  ls
+ 1310  cd RTC
+ 1311  ls
+ 1312  cd src
+ 1313  ls
+ 1314  cd rtc
+ 1315  ls
+ 1316  cd ..
+ 1317  cd cycleGAN/
+ 1318  ls
+ 1319  cd CycleGAN/
+ 1320  ls
+ 1321  cd datasets
+ 1322  ls
+ 1323  rm -rf water
+ 1324  cd ..
+ 1325  cd RTC
+ 1326  ls
+ 1327  cd data
+ 1328  ls
+ 1329  mkdir dem
+ 1330  ls
+ 1331  cd dem
+ 1332  ls
+ 1333  cd "/data/BRIDGE/yolo-rotate"
+ 1334  ls
+ 1335  conda activate rtc
+ 1336  cd ..
+ 1337  cd R
+ 1338  cd RTC
+ 1339  ls
+ 1340  cd B
+ 1341  cd BRIDGE
+ 1342  ls
+ 1343  cd RTC
+ 1344  ls
+ 1345  mkdir data
+ 1346  ls
+ 1347  cd data
+ 1348  ls
+ 1349  bash YDD_SLC_list_DESC.csv
+ 1350  wget --user==seungwoolee --password==1599Tmddn! https://datapool.asf.alaska.edu/SLC/SB/S1B_IW_SLC__1SDV_20211218T213206_20211218T213233_030085_0397A1_9897.zip
+ 1351  wget --user==gkstlsgp3as --password==wazedxsS7@! https://datapool.asf.alaska.edu/SLC/SB/S1B_IW_SLC__1SDV_20211218T213206_20211218T213233_030085_0397A1_9897.zip
+ 1352  wget --user==gkstlsgp3as --password==wazedxsS7@! --autho-no-challenge=on https://datapool.asf.alaska.edu/SLC/SB/S1B_IW_SLC__1SDV_20211218T213206_20211218T213233_030085_0397A1_9897.zip
+ 1353  wget --help
+ 1354  wget --user==gkstlsgp3as --password==wazedxsS7@! --ask-password https://datapool.asf.alaska.edu/SLC/SB/S1B_IW_SLC__1SDV_20211218T213206_20211218T213233_030085_0397A1_9897.zip
+ 1355  wget --user==gkstlsgp3as --password==wazedxsS7@! https://datapool.asf.alaska.edu/SLC/SB/S1B_IW_SLC__1SDV_20211218T213206_20211218T213233_030085_0397A1_9897.zip
+ 1356  wget --user==seungwoolee --password==1599Tmddn! https://datapool.asf.alaska.edu/SLC/SB/S1B_IW_SLC__1SDV_20211218T213206_20211218T213233_030085_0397A1_9897.zip
+ 1357  cd ~
+ 1358  touch .netrc
+ 1359  echo "machine urs.earthdata.nasa.gov login gkstlsgp3as password wazedxsS7@!" >> .netrc
+ 1360  chmod 0600 .netrc
+ 1361  cd /data/BRIDGE
+ 1362  ls
+ 1363  cd RTC
+ 1364  ls
+ 1365  cd data
+ 1366  wget --user==seungwoolee --password==1599Tmddn! https://datapool.asf.alaska.edu/SLC/SB/S1B_IW_SLC__1SDV_20211218T213206_20211218T213233_030085_0397A1_9897.zip
+ 1367  wget --user==gkstlsgp3as --password==wazedxsS7@! https://datapool.asf.alaska.edu/SLC/SB/S1B_IW_SLC__1SDV_20211218T213206_20211218T213233_030085_0397A1_9897.zip
+ 1368  cd ~
+ 1369  touch .urs_cookies
+ 1370  touch .dodsrc
+ 1371  vi .dodsrc
+ 1372  ls
+ 1373  vi load_prerequisites.py
+ 1374  ls
+ 1375  python load_prerequisites.py
+ 1376  ls
+ 1377  wget --user==gkstlsgp3as --password==wazedxsS7@! https://datapool.asf.alaska.edu/SLC/SB/S1B_IW_SLC__1SDV_20211218T213206_20211218T213233_030085_0397A1_9897.zip
+ 1378  wget --user==gkstlsgp3as --ask-password https://datapool.asf.alaska.edu/SLC/SB/S1B_IW_SLC__1SDV_20211218T213206_20211218T213233_030085_0397A1_9897.zip
+ 1379  cd /data/BRIDGE/RTC
+ 1380  ls
+ 1381  cd data
+ 1382  ls
+ 1383  bash YDD_SLC_list_DESC.csv
+ 1384  wget --user=gkstlsgp3as --password=wazedxsS7@! https://datapool.asf.alaska.edu/SLC/SB/S1B_IW_SLC__1SDV_20170910T213141_20170910T213208_007335_00CF07_5EB2.zip
+ 1385  nvidia-smi
+ 1386  cd dem
+ 1387  cd /share/sentinel
+ 1388  cd /share
+ 1389  cd /data
+ 1390  ls
+ 1391  cd ~/tools/
+ 1392  mkdir tools
+ 1393  ls
+ 1394  cd /data/BRIDGE/RTC
+ 1395  ls
+ 1396  mkdir tools
+ 1397  cd tools
+ 1398  git clone https://github.com/opera-adt/sentinel1-burst-id.git
+ 1399  conda install --file sentinel1-burst-id/requirements.txt wget
+ 1400  export S1_BURST_ID_HOME=~/tools/sentinel1-burst-id
+ 1401  export PYTHONPATH=${PYTHONPATH}:${S1_BURST_ID_HOME}/src
+ 1402  export PATH=${PATH}:${S1_BURST_ID_HOME}/bin
+ 1403  ls
+ 1404  cd sentinel1-burst-id/
+ 1405  ls
+ 1406  cd bin
+ 1407  ls
+ 1408  python create_burst_id.py -d /data/BRIDGE/RTC/data/images
+ 1409  cd ..
+ 1410  ls
+ 1411  cd tools
+ 1412  ls
+ 1413  cd sentinel1-burst-id/
+ 1414  ls
+ 1415  cd src
+ 1416  ls
+ 1417  python create_burst_id.py -d /data/BRIDGE/RTC/data/images
+ 1418  python ../bin/create_burst_id.py -d /data/BRIDGE/RTC/data/images
+ 1419  python ../bin/create_burst_id.py -d /data/BRIDGE/RTC/data/image
+ 1420  conda activate yolo_obb2
+ 1421  cd /data/BRIDGE/cycleGAN/
+ 1422  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water --divide 
+ 1423  nohup python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water --divide &
+ 1424  disown -h
+ 1425  top
+ 1426  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 10 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water --divide 
+ 1427  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 10 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water --divide --shp_path /data/BRIDGE/cycleGAN/data/landmask/waterline/
+ 1428  pip install numpy==1.18.5
+ 1429  pip install --upgrade pip
+ 1430  pip install numpy
+ 1431  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 10 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water --divide --shp_path /data/BRIDGE/cycleGAN/data/landmask/waterline/
+ 1432  python
+ 1433  pip install numpy<1.25.0
+ 1434  pip install numpy=<1.25.0
+ 1435  pip install numpy<=1.25.0
+ 1436  pip install numpy==1.24
+ 1437  pip install numpy==1.22
+ 1438  pip install protobuf==3.20.4
+ 1439  pip install protobuf==3.20.3
+ 1440  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 10 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water --divide --shp_path /data/BRIDGE/cycleGAN/data/landmask/waterline/
+ 1441  pip uninstall torchvision
+ 1442  pip install torchvision>=0.8.1
+ 1443  python
+ 1444  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 10 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water --divide --shp_path /data/BRIDGE/cycleGAN/data/landmask/waterline/
+ 1445  rm -rf ./CycleGAN/datasets/water/
+ 1446  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 10 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water --divide --shp_path /data/BRIDGE/cycleGAN/data/landmask/waterline/
+ 1447  rm -rf ./CycleGAN/datasets/water/
+ 1448  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 10 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water --divide --shp_path /data/BRIDGE/cycleGAN/data/landmask/waterline/
+ 1449  rm -rf ./CycleGAN/datasets/water/
+ 1450  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 10 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water --divide --shp_path /data/BRIDGE/cycleGAN/data/landmask/waterline/
+ 1451  ls
+ 1452  cd data
+ 1453  ls
+ 1454  cd images
+ 1455  ls
+ 1456  cd sentinel
+ 1457  ls
+ 1458  rm -rf edge
+ 1459  cd ..
+ 1460  cd labels
+ 1461  ls
+ 1462  cd sentinel
+ 1463  ls
+ 1464  rm -rf edge
+ 1465  rm -rf water_edge
+ 1466  cd ..
+ 1467  cd /data/BRIDGE/yolo-rotate/
+ 1468  ls
+ 1469  cd images
+ 1470  cd data
+ 1471  cd images
+ 1472  ls
+ 1473  cd sentinel
+ 1474  ls
+ 1475  rm -rf org
+ 1476  rm -rf water_bbox
+ 1477  cd ..
+ 1478  cd labels
+ 1479  ls
+ 1480  cd sentinel/
+ 1481  ls
+ 1482  rm -rf or
+ 1483  rm -rf org
+ 1484  rm -rf water_bbox
+ 1485  cd ..
+ 1486  ls
+ 1487  cd ..
+ 1488  cd cycleGAN/
+ 1489  ls
+ 1490  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 10 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water --divide --shp_path /data/BRIDGE/cycleGAN/data/landmask/waterline/
+ 1491  python train.py --dataroot ./datasets/water --name water_cyclegan --model cycle_gan --dataset_mode aligned --save_latest_freq 10 --save_epoch_freq 1 --display_freq 10
+ 1492  cd CycleGAN
+ 1493  python train.py --dataroot ./datasets/water --name water_cyclegan --model cycle_gan --dataset_mode aligned --save_latest_freq 10 --save_epoch_freq 1 --display_freq 10
+ 1494  cd ..
+ 1495  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 10 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water --divide --shp_path /data/BRIDGE/cycleGAN/data/landmask/waterline/
+ 1496  rm -rf CycleGAN/datasets/water
+ 1497  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 10 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water --divide --shp_path /data/BRIDGE/cycleGAN/data/landmask/waterline/
+ 1498  cd "/data/BRIDGE"
+ 1499  ls
+ 1500  chmod +x oilspill
+ 1501  ./oilspill 
+ 1502  export CUDA_VISIBLE_DEVICES=0
+ 1503  ./oilspill 
+ 1504  kill %1
+ 1505  kill %2
+ 1506  cd oicr
+ 1507  ls
+ 1508  git pull
+ 1509  ls
+ 1510  git log -p -5 engine.py
+ 1511  ls
+ 1512  git log -p -5 main.py
+ 1513  ls
+ 1514  d data
+ 1515  ls
+ 1516  cd daa
+ 1517  cd data
+ 1518  ls
+ 1519  cd ..
+ 1520  ls
+ 1521  cd code
+ 1522  ls
+ 1523  cd ..
+ 1524  ls
+ 1525  cd models
+ 1526  ls
+ 1527  git log -p matcher.py
+ 1528  ls
+ 1529  git log -p backbone.py
+ 1530  ls
+ 1531  git log -p position_encoding.py.py
+ 1532  git log -p position_encoding.py
+ 1533  conda activate oicr
+ 1534  ls
+ 1535  cd ..
+ 1536  ls
+ 1537  cd ..
+ 1538  ls
+ 1539  cd Deformable-DETR/
+ 1540  ls
+ 1541  CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.launch --nproc_per_node=2 main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query --mean_query
+ 1542  python main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query --mean_query
+ 1543  git remote -V
+ 1544  git remote -v
+ 1545  git remote remove origin
+ 1546  git remote add origin https://github.com/gkstlsgp3as/DefDETR_WSOD.git
+ 1547  git add .
+ 1548  git commit -m "initial WSOD framework"
+ 1549  git push origin main
+ 1550  python
+ 1551  python main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query --mean_query
+ 1552  pip install MultiScaleDeformableAttention
+ 1553  pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu102/torch1.9.0/index.html
+ 1554  pip install MultiScaleDeformableAttention
+ 1555  python main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query --mean_query
+ 1556  cd /data/BRIDGE/RTC
+ 1557  ls
+ 1558  cd app
+ 1559  ls
+ 1560  python rtc_s1.py /data/BRIDGE/RTC/tests/runconfigs/s1b_slc_rtc.yaml 
+ 1561  conda activate rtc
+ 1562  python rtc_s1.py /data/BRIDGE/RTC/tests/runconfigs/s1b_slc_rtc.yaml 
+ 1563  cd /dtc/ld.so.config
+ 1564  cd /etc
+ 1565  ls
+ 1566  cd ld.so.conf.d/
+ 1567  ls
+ 1568  cd ..
+ 1569  mkdir ld.so.config
+ 1570  cd ~
+ 1571  ldconfig
+ 1572  nvidia-smi
+ 1573  cd /home/shhan/anaconda3/envs/oicr/lib/python3.8/site-packages/torchvision/ops/
+ 1574  ls
+ 1575  vi misc.py 
+ 1576  conda activate yolo_obb2
+ 1577  cd /data/BRIDGE/yolo-rotate/
+ 1578  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode water --resume
+ 1579  conda activate yolo_obb2
+ 1580  cd /data/BRIDGE/cycleGAN/
+ 1581  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode water --divide
+ 1582  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water --divide
+ 1583  cd CycleGAN/
+ 1584  cd ..
+ 1585  ls
+ 1586  cd CycleGAN/
+ 1587  ls
+ 1588  cd datasets
+ 1589  ls
+ 1590  rm -rf water
+ 1591  python
+ 1592  cd ..
+ 1593  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode water 
+ 1594  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water 
+ 1595  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source water --divide
+ 1596  cd CycleGAN/
+ 1597  python train.py --dataroot ./datasets/water --name water_cyclegan --model cycle_gan --dataset_mode aligned --save_latest_freq 10 --save_epoch_freq 1 --display_freq 1
+ 1598  cd datasets
+ 1599  rm -rf water
+ 1600  nvidia-smi
+ 1601  cd ..
+ 1602  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source sar_rev --divide
+ 1603  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source sar_rev --divide --shp_path /data/BRIDGE/cycleGAN/data/landmask/landline/
+ 1604  history
+ 1605  python
+ 1606  cd "Deformable-DETR"
+ 1607  cd ..
+ 1608  cd oicr
+ 1609  conda activate oicr
+ 1610  history
+ 1611  python main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query --mean_query 
+ 1612  conda activate oicr
+ 1613  cd oicr
+ 1614  ls
+ 1615  cd ..
+ 1616  ls
+ 1617  cd Deformable-DETR/
+ 1618  ls
+ 1619  history
+ 1620  ls
+ 1621  cd models
+ 1622  ls
+ 1623  cd ops
+ 1624  ls
+ 1625  sh make.sh
+ 1626  cd ..
+ 1627  history
+ 1628  python main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query --mean_query
+ 1629  python main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query --mean_query --pkl /home/shhan/oicr/data/coco_train2017_proposals.pkl
+ 1630  history
+ 1631  nvidia-smi
+ 1632  CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.launch --nproc_per_node=2 main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query --mean_query  --pkl /home/shhan/oicr/data/coco_train2017_proposals.pkl
+ 1633  CUDA_VISIBLE_DEVICES=0,1,2,3 python -m torch.distributed.launch --nproc_per_node=4 main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query --mean_query  --pkl /home/shhan/oicr/data/coco_train2017_proposals.pkl
+ 1634  git add .
+ 1635  git commit -m "MSDA updated"
+ 1636  git push origin main
+ 1637  nvidia-smi
+ 1638  top
+ 1639  kill 3760575
+ 1640  top
+ 1641  nvidia-smijkj
+ 1642  top 
+ 1643  CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.launch --nproc_per_node=2 main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query --mean_query  --pkl /home/shhan/oicr/data/coco_train2017_proposals.pkl
+ 1644  CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.launch --nproc_per_node=2 main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query --mean_query  --pkl /home/shhan/oicr/data/coco_train2017_proposals.pkl --epochs 50
+ 1645  CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.launch --nproc_per_node=2 main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query --mean_query  --pkl /home/shhan/oicr/data/coco_train2017_proposals.pkl
+ 1646  cd "/data/BRIDGE/yolo-rotate"
+ 1647  cd ..
+ 1648  cd cycleGAN/
+ 1649  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode water_bbox
+ 1650  ls
+ 1651  cd datasets
+ 1652  ls
+ 1653  cd data
+ 1654  ls
+ 1655  cd ..
+ 1656  cd CycleGAN/
+ 1657  ls
+ 1658  cd datasets
+ 1659  ls
+ 1660  rm -rf sar_rev
+ 1661  rm -rf edge
+ 1662  cd ..
+ 1663  cd data
+ 1664  ls
+ 1665  cd ..
+ 1666  ls
+ 1667  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source lines --divide
+ 1668  conda activate yolo_obb2
+ 1669  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source lines --divide
+ 1670  python
+ 1671  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source lines --divide
+ 1672  history
+ 1673  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source lines --divide
+ 1674  python
+ 1675  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source lines --divide
+ 1676  history
+ 1677  2027!
+ 1678  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source lines --divide
+ 1679  fg
+ 1680  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --source lines --divide
+ 1681  cd "/data/BRIDGE/RTC"
+ 1682  conda activate rtc
+ 1683  ls
+ 1684  cd app
+ 1685  python rtc_s1.py /data/BRIDGE/RTC/tests/runconfigs/s1b_slc_rtc.yaml
+ 1686  python
+ 1687  pip install Qiime2
+ 1688  conda install Qiime2
+ 1689  python rtc_s1.py /data/BRIDGE/RTC/tests/runconfigs/s1b_slc_rtc.yaml
+ 1690  export LD_LIBRARY_PATH=/usr/local/hdf5/lib:$LD_LIBRARY_PATH
+ 1691  python rtc_s1.py /data/BRIDGE/RTC/tests/runconfigs/s1b_slc_rtc.yaml
+ 1692  export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+ 1693  python rtc_s1.py /data/BRIDGE/RTC/tests/runconfigs/s1b_slc_rtc.yaml
+ 1694  export LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
+ 1695  python rtc_s1.py /data/BRIDGE/RTC/tests/runconfigs/s1b_slc_rtc.yaml
+ 1696  pip uninstall h5py
+ 1697  pip install --no-cache-dir h5py
+ 1698  python rtc_s1.py /data/BRIDGE/RTC/tests/runconfigs/s1b_slc_rtc.yaml
+ 1699  pip install opencv-python
+ 1700  pip install h5py==2.6.0
+ 1701  pip install pyproject.toml-based projects
+ 1702  pip install pyproject-toml
+ 1703  pip install h5py==2.6.0
+ 1704  pip uninstall h5py
+ 1705  conda install h5py
+ 1706  pip install scanpy
+ 1707  python rtc_s1.py /data/BRIDGE/RTC/tests/runconfigs/s1b_slc_rtc.yaml
+ 1708  pip install h5py==2.6.0
+ 1709  pip install setuptools wheel
+ 1710  pip install -r pyproject.toml
+ 1711  pip install pyproject-toml
+ 1712  python rtc_s1.py /data/BRIDGE/RTC/tests/runconfigs/s1b_slc_rtc.yaml
+ 1713  export LD_LIBRARY_PATH=/home/shhan/anaconda3/lib:$LD_LIBRARY_PATH
+ 1714  python rtc_s1.py /data/BRIDGE/RTC/tests/runconfigs/s1b_slc_rtc.yaml
+ 1715  python -V
+ 1716  conda deactivate
+ 1717  conda activate oicr
+ 1718  cd /home/shhan/Deformable-DETR/
+ 1719  python main.py --coco_path /home/shhan/oicr/data/coco --backbone dino --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/dino_wsod_query --mean_query --pkl /home/shhan/oicr/data/coco_train2017_proposals.pkl
+ 1720  conda activate oicr
+ 1721  cd oicr
+ 1722  history
+ 1723  CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.launch --nproc_per_node=2 main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query --mean_query  --pkl /home/shhan/oicr/data/coco_train2017_proposals.pkl
+ 1724  cd ..
+ 1725  cd Dls
+ 1726  cd Deformable-DETR/
+ 1727  CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.launch --nproc_per_node=2 main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query --mean_query  --pkl /home/shhan/oicr/data/coco_train2017_proposals.pkl
+ 1728  CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.launch --nproc_per_node=2 main.py --coco_path /home/shhan/oicr/data/coco --backbone resnet50 --patch_size 16 --wsod --no_aux_loss --output_dir ./outputs/resnet50_wsod_query --mean_query  --pkl /home/shhan/oicr/data/coco_train2017_proposals.pkl --resume ./outputs/resnet50_wsod_query/checkpoint.pth
+ 1729  nvidia-smi
+ 1730  cd etc/
+ 1731  ls
+ 1732  cd /etc
+ 1733  ls
+ 1734  /sbin/ldconfig -p | grep gdal
+ 1735  cd /usr/lib
+ 1736  ls
+ 1737  cd ..
+ 1738  /etc/
+ 1739  ls
+ 1740  cd /etc
+ 1741  ls
+ 1742  where libgdal
+ 1743  whereis libgdal
+ 1744  ls
+ 1745  cd lib
+ 1746  ls
+ 1747  cd /usr
+ 1748  ls
+ 1749  cd lib
+ 1750  ls
+ 1751  whereis libhdf5
+ 1752  ls
+ 1753  whereis libhdf5
+ 1754  whereis libhdf5_cpp
+ 1755  whereis libhdf5_cpp]
+ 1756  whereis libhdf5_cpp
+ 1757  whereis libgdal
+ 1758  ls
+ 1759  whereis libhdf5
+ 1760  whereis libhdf5_cpp
+ 1761  whereis libhdf5
+ 1762  cd /anaconda3
+ 1763  cd ~/anaconda3
+ 1764  ls
+ 1765  cd lib
+ 1766  ls
+ 1767  whereis libhdf5.so
+ 1768  ls
+ 1769  whereis libisce3
+ 1770  ls
+ 1771  cd /home/shhan/anaconda3/envs/rtc/lib/python3.8/site-packages/isce3/ext/../../../../
+ 1772  ls
+ 1773  ls libisce3.so
+ 1774  whereis libisce3.so
+ 1775  conda deactivate
+ 1776  conda create -n rtc2 python=3.8.6 gdal
+ 1777  conda activate rtc2
+ 1778  conda install -c conda-forge isce3
+ 1779  python
+ 1780  ${ISCEHOME}
+ 1781  whereis libisce3
+ 1782  cd /home/shhan/anaconda3/envs/rtc2/lib/python3.8/site-packages/isce3/ext/
+ 1783  ls
+ 1784  cd ..
+ 1785  ls
+ 1786  export LD_LIBRARY_PATH=~/anaconda3/envs/rtc2/lib:$LD_LIBRARY_PATH
+ 1787  python
+ 1788  cd ${ISCEHOME}/python
+ 1789  cd python
+ 1790  whereis python
+ 1791  cd /home/shhan/anaconda3/envs/rtc2/bin/python
+ 1792  cd /home/shhan/anaconda3/envs/rtc2/bin/
+ 1793  ls
+ 1794  whereis python
+ 1795  cd python
+ 1796  ls
+ 1797  cd ..
+ 1798  ls
+ 1799  cd /usr/lib/python3.8
+ 1800  ls
+ 1801  cd lib
+ 1802  cd ~/anaconda3
+ 1803  ls
+ 1804  cd envs
+ 1805  ls
+ 1806  cd rtc2
+ 1807  ls
+ 1808  cd lib
+ 1809  ls
+ 1810  cd ..
+ 1811  ls
+ 1812  cd ..
+ 1813  ls
+ 1814  cd ~
+ 1815  ls
+ 1816  cd /data/BRIDGE
+ 1817  ls
+ 1818  cd RTC
+ 1819  ls
+ 1820  git clone https://github.com/isce-framework/isce3.git
+ 1821  ls
+ 1822  cd isce3/tools/src
+ 1823  ls
+ 1824  cd isce3/tools
+ 1825  ls
+ 1826  mkdir src
+ 1827  cd src
+ 1828  git clone https://github-fn.jpl.nasa.gov/isce-3/isce
+ 1829  ls
+ 1830  cd ..
+ 1831  ls
+ 1832  cd ..
+ 1833  ls
+ 1834  git checkout develop
+ 1835  cd tools/
+ 1836  ls
+ 1837  cd ..
+ 1838  ls
+ 1839  cd isce3/tools/src
+ 1840  ls
+ 1841  python
+ 1842  conda install --url https://conda.anaconda.org/conda-forge/linux-64/isce3-0.14.0-py39h431996e_1.conda
+ 1843  conda install https://conda.anaconda.org/conda-forge/linux-64/isce3-0.14.0-py39h431996e_1.conda
+ 1844  pip install isce3==0.14.0
+ 1845  conda install isce3==0.14.0
+ 1846  conda deactivate
+ 1847  conda remove -n rtc2
+ 1848  conda env remove -n rtc2
+ 1849  conda create -n rtc2
+ 1850  conda activate rtc2
+ 1851  ls
+ 1852  cd /data/BRIDGE/RTC/
+ 1853  ls
+ 1854  cd Docker/
+ 1855  pip install -r requirements.txt 
+ 1856  python -V
+ 1857  conda deactivate
+ 1858  conda env remote -n rtc2
+ 1859  conda env remove -n rtc2
+ 1860  conda create -n rtc2 python==3.9 gdal
+ 1861  conda activate rtc2
+ 1862  pip install -r requirements.txt 
+ 1863  python -V
+ 1864  pip install eigen==3.3
+ 1865  pip install eigen
+ 1866  pip install -r requirements.txt 
+ 1867  pip install fftw
+ 1868  pip install gmock
+ 1869  conda install -c "conda-forge/label/broken" isce3
+ 1870  cd ..
+ 1871  cd app
+ 1872  python rtc_s1.py /data/BRIDGE/RTC/tests/runconfigs/s1b_slc_rtc.yaml 
+ 1873  cd ..
+ 1874  python ./app/rtc_s1.py /data/BRIDGE/RTC/tests/runconfigs/s1b_slc_rtc.yaml 
+ 1875  whereis libhdf5
+ 1876  sar -r 1
+ 1877  free
+ 1878  gdb python
+ 1879  cd "/data/BRIDGE/yolo-rotate"
+ 1880  history
+ 1881  conda activate yolo_obb2
+ 1882  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode landline
+ 1883  python
+ 1884  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode landline --divide
+ 1885  cd ..
+ 1886  ls
+ 1887  cd RTC
+ 1888  conda deactivate
+ 1889  conda activate rtc
+ 1890  ls
+ 1891  cd app
+ 1892  ls
+ 1893  python rtc_s1.py /data/BRIDGE/RTC/tests/runconfigs/s1b_slc_rtc.yaml 
+ 1894  gdalinfo --version
+ 1895  proj
+ 1896  geos-config --version
+ 1897  python
+ 1898  cd /etc/
+ 1899  ls
+ 1900  cd ld.so.conf.d/
+ 1901  ls
+ 1902  cd ~
+ 1903  cd /data/BRIDGE/RTC/
+ 1904  conda install -c conda-forge libgdal
+ 1905  conda update -n base -c defaults conda
+ 1906  cd /etc/lib
+ 1907  cd /etc
+ 1908  ls
+ 1909  cd /usr/lib
+ 1910  ls
+ 1911  cd /data/BRIDGE/RTC
+ 1912  ls
+ 1913  cd Docker/
+ 1914  ls
+ 1915  pip install -r requirements.txt 
+ 1916  cd ..
+ 1917  ls
+ 1918  cd build
+ 1919  ls
+ 1920  cd ..
+ 1921  python rtc_s1.py /data/BRIDGE/RTC/tests/runconfigs/s1b_slc_rtc.yaml 
+ 1922  python ./app/rtc_s1.py /data/BRIDGE/RTC/tests/runconfigs/s1b_slc_rtc.yaml 
+ 1923  cd app
+ 1924  python rtc_s1.py /data/BRIDGE/RTC/tests/runconfigs/s1b_slc_rtc.yaml 
+ 1925  cd ~/anaconda3
+ 1926  cd envs
+ 1927  cd lis
+ 1928  cd lib
+ 1929  ls
+ 1930  cd rtc
+ 1931  ls
+ 1932  cd lib
+ 1933  ls
+ 1934  cd ..
+ 1935  cd /data/BRIDGE
+ 1936  ls
+ 1937  cd RTC
+ 1938  ls
+ 1939  bash build
+ 1940  bash build_docker_image.sh 
+ 1941  cd "Deformable-DETR"
+ 1942  git add .
+ 1943  git commit -m "debugging"
+ 1944  git push origin main
+ 1945  nvidia-smi
+ 1946  cd /data/BRIDGE
+ 1947  ls
+ 1948  cd yolo-rotate/
+ 1949  conda activate yolo_obb2
+ 1950  ls
+ 1951  python
+ 1952  history
+ 1953  cd /home/shhan/Deformable-DETR/
+ 1954  git add .
+ 1955  git commit -m "update engine.py"
+ 1956  git push origin main
+ 1957  git commit -m "update engine.py"
+ 1958  git push origin main
+ 1959  sl
+ 1960  ls
+ 1961  nvidia-smi
+ 1962  kill 1678724
+ 1963  nvidia-smi
+ 1964  ls
+ 1965  cd /data/BRIDGE
+ 1966  ls
+ 1967  cd yolo-rotate/
+ 1968  python
+ 1969  nvidia-smi
+ 1970  history
+ 1971  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode landline --divide
+ 1972  ls
+ 1973  cd data
+ 1974  ls
+ 1975  cd images
+ 1976  ls
+ 1977  cd sentinel/
+ 1978  ls
+ 1979  rm -rf landline
+ 1980  cd ..
+ 1981  cd labels
+ 1982  ls
+ 1983  cd sentinel/
+ 1984  ls
+ 1985  rm -rf landline
+ 1986  cd ..
+ 1987  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode landline --divide
+ 1988  python
+ 1989  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode landline --divide
+ 1990  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode landline
+ 1991  python poly_test.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode landline
+ 1992  python poly_test.py --weights /data/BRIDGE/yolo-rotate/runs/train/exp301_batch16_epoch300_imgsize640_lr0.001_lrf0.1_smoothing0.1_multiscaleFalse/weights/best_S1_epoch290_div40_pre0.438_rec0.248_map0.201_map950.046.pt --data sentinel.yaml --img-size 640 --iou-thres 0.3 --polygon --task valid --device 3 --conf-thres 0.01
+ 1993  history
+ 1994  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode landlines --divide
+ 1995  rm -rf ./data/images/sentinel/landlines
+ 1996  rm -rf ./data/labels/sentinel/landlines
+ 1997  python train.py --cfg poly_yolov7.yaml --weights '' --img-size 640 --epochs 300 --cache --device 2,3 --data sentinel.yaml --hyp hyp.scratch.custom.yaml --polygon --adam --label-smoothing 0.1 --mode landlines --divide
+ 1998  /usr/bin/python3
+ 1999  cd "/data/BRIDGE/cycleGAN/CycleGAN"
+ 2000  nvidia-smi
+ 2001  top
+ 2002  conda activate yolo_obb2
+ 2003  cd ..
+ 2004  cd yolo-rotate/
+ 2005  python poly_test.py --weights /data/BRIDGE/yolo-rotate/runs/train/exp308_batch16_epoch300_imgsize640_lr0.001_lrf0.1_smoothing0.1_multiscaleFalse/weights/best_S1_epoch45_div40_pre0.519_rec0.413_map0.354_map950.097.pt --data sentinel.yaml --img-size 640 --iou-thres 0.3 --polygon --task valid --device 3 --conf-thres 0.01
+ 2006  python detect.py --weights /data/BRIDGE/yolo-rotate/runs/train/exp308_batch16_epoch300_imgsize640_lr0.001_lrf0.1_smoothing0.1_multiscaleFalse/weights/best_S1_epoch45_div40_pre0.519_rec0.413_map0.354_map950.097.pt --img-size 640 --conf 0.01 --source ./inference/images/ --iou-thres 0.3 --polygon --save-txt --device 3 --hide-labels
+ 2007  python detect.py --weights /data/BRIDGE/yolo-rotate/runs/train/exp308_batch16_epoch300_imgsize640_lr0.001_lrf0.1_smoothing0.1_multiscaleFalse/weights/best_S1_epoch45_div40_pre0.519_rec0.413_map0.354_map950.097.pt --img-size 640 --conf 0.01 --source ./inference/images/ --iou-thres 0.3 --polygon --save-txt --device 3 --hide-labels --save-image
+ 2008  python detect.py --weights /data/BRIDGE/yolo-rotate/runs/train/exp308_batch16_epoch300_imgsize640_lr0.001_lrf0.1_smoothing0.1_multiscaleFalse/weights/best_S1_epoch45_div40_pre0.519_rec0.413_map0.354_map950.097.pt --img-size 640 --conf 0.01 --source ./inference/images/ --iou-thres 0.3 --polygon --save-txt --device 3 --hide-labels --save-img
+ 2009  python detect.py --weights /data/BRIDGE/yolo-rotate/runs/train/exp308_batch16_epoch300_imgsize640_lr0.001_lrf0.1_smoothing0.1_multiscaleFalse/weights/best_S1_epoch45_div40_pre0.519_rec0.413_map0.354_map950.097.pt --img-size 640 --conf 0.01 --source ./inference/images/ --iou-thres 0.3 --polygon --save-txt --device 3 --hide-labels
+ 2010  conda deactivate
+ 2011  conda activate oicr
+ 2012  cd /home/shhan/Deformable-DETR/
+ 2013  ls
+ 2014  history
+ 2015  history > hist.txt
