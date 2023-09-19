@@ -74,27 +74,37 @@ class HungarianMatcher(nn.Module):
                 len(index_i) = len(index_j) = min(num_queries, num_target_boxes)
         """
         with torch.no_grad():
-            if self.wsod:
-                bs, num_queries = outputs["pred_mil"].shape[:2]
+            if self.wsod: #  make class socres doesn't affect matching
+                bs, num_queries = outputs["pred_boxes"].shape[:2]
 
                 # We flatten to compute the cost matrices in a batch
-                out_prob = outputs["pred_mil"].flatten(0, 1).softmax(-1)
+                #out_prob = outputs["pred_mil"].flatten(0, 1).softmax(-1)
+                out_bbox = outputs["pred_boxes"].flatten(0, 1)  # [batch_size * num_queries, 4]
                 
                 # Also concat the target labels and boxes
-                tgt_ids = torch.cat([v["img_labels"] for v in targets])
+                #tgt_ids = torch.cat([v["img_labels"] for v in targets])
+                tgt_bbox = torch.cat([v["proposals"] for v in targets])
 
                 # Compute the classification cost.
+                '''
                 alpha = 0.25
                 gamma = 2.0
                 neg_cost_class = (1 - alpha) * (out_prob ** gamma) * (-(1 - out_prob + 1e-8).log())
                 pos_cost_class = alpha * ((1 - out_prob) ** gamma) * (-(out_prob + 1e-8).log())
                 cost_class = pos_cost_class[:, tgt_ids] - neg_cost_class[:, tgt_ids]
+                '''
+                # Compute the L1 cost between boxes
+                cost_bbox = torch.cdist(out_bbox, tgt_bbox.type(torch.FloatTensor).to(tgt_bbox.device), p=1)
 
+                # Compute the giou cost betwen boxes
+                cost_giou = -generalized_box_iou(box_cxcywh_to_xyxy(out_bbox),
+                                                box_cxcywh_to_xyxy(tgt_bbox))
+                
                 # Final cost matrix
-                C =  self.cost_class * cost_class #+ self.cost_bbox * cost_bbox + self.cost_giou * cost_giou
-                C = C.view(bs, num_queries, -1).cpu()
+                C = self.cost_bbox * cost_bbox + self.cost_giou * cost_giou # self.cost_class * cost_class +
+                C = C.view(bs, num_queries, -1).cpu() # 2, 300, 12
 
-                sizes = [len(v["img_labels"]) for v in targets]
+                sizes = [len(v["proposals"]) for v in targets] # 244, 174
                 indices = [linear_sum_assignment(c[i]) for i, c in enumerate(C.split(sizes, -1))]
                 return [(torch.as_tensor(i, dtype=torch.int64), torch.as_tensor(j, dtype=torch.int64)) for i, j in indices]
 
@@ -128,7 +138,7 @@ class HungarianMatcher(nn.Module):
                 C = self.cost_bbox * cost_bbox + self.cost_class * cost_class + self.cost_giou * cost_giou
                 C = C.view(bs, num_queries, -1).cpu()
 
-                sizes = [len(v["img_labels"]) for v in targets]
+                sizes = [len(v["boxes"]) for v in targets]
                 indices = [linear_sum_assignment(c[i]) for i, c in enumerate(C.split(sizes, -1))]
                 return [(torch.as_tensor(i, dtype=torch.int64), torch.as_tensor(j, dtype=torch.int64)) for i, j in indices]
 

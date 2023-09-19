@@ -65,6 +65,7 @@ class CocoDetection(TvCocoDetection):
 
 def normalize_proposals(proposals, size):
     # divide with width and height for normalization -> make it simple to resize
+    proposals = [p for p in proposals if p[2]*p[3]>0]
     proposals = [p/size[0] if i//2==0 else p/size[1] for i, p in enumerate(proposals)]
     
     return torch.cat(proposals).reshape(-1,4)

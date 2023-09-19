@@ -444,7 +444,7 @@ class SetCriterionWSOD(nn.Module):
         assert 'pred_mil' in outputs
         mil_score = outputs['pred_mil']
 
-        idx = self._get_src_permutation_idx(indices)
+        idx = self._get_src_permutation_idx(indices) # 수정필요
         target_classes_im = torch.cat([t["img_labels"] for t in targets])
         target_classes = torch.full(mil_score.transpose(2,1).shape[:2], 0,
                                     dtype=torch.int64, device=mil_score.device) # 2, 92
@@ -479,7 +479,8 @@ class SetCriterionWSOD(nn.Module):
                                                         refinement_output['im_labels_real'])
 
             losses['loss_refine%d' % i_refine] = refine_loss.clone()
-        if log:
+        
+        if log: # 수정필요
         #    # TODO this should probably be a separate loss, not hacked in this one here
             losses['class_error'] = 100 - mult_accuracy(src_logits[idx], target_classes_im)[0]
         return losses
@@ -498,6 +499,26 @@ class SetCriterionWSOD(nn.Module):
         losses = {'cardinality_error': card_err}
         return losses
     
+    def loss_boxes(self, outputs, targets, indices, num_boxes):
+        """Compute the losses related to the bounding boxes, the L1 regression loss and the GIoU loss
+           targets dicts must contain the key "boxes" containing a tensor of dim [nb_target_boxes, 4]
+           The target boxes are expected in format (center_x, center_y, h, w), normalized by the image size.
+        """
+        assert 'pred_boxes' in outputs
+        idx = self._get_src_permutation_idx(indices)
+        src_boxes = outputs['pred_boxes'][idx]
+        target_boxes = torch.cat([t['proposals'][i] for t, (_, i) in zip(targets, indices)], dim=0)
+
+        loss_bbox = F.l1_loss(src_boxes, target_boxes, reduction='none')
+
+        losses = {}
+        losses['loss_bbox'] = loss_bbox.sum() / num_boxes
+
+        loss_giou = 1 - torch.diag(box_ops.generalized_box_iou(
+            box_ops.box_cxcywh_to_xyxy(src_boxes),
+            box_ops.box_cxcywh_to_xyxy(target_boxes)))
+        losses['loss_giou'] = loss_giou.sum() / num_boxes
+        return losses
     
     def _get_src_permutation_idx(self, indices):
         # permute predictions following indices
@@ -514,6 +535,7 @@ class SetCriterionWSOD(nn.Module):
     def get_loss(self, loss, outputs, targets, indices, num_boxes, **kwargs):
         loss_map = {
             'labels': self.loss_labels,
+            'boxes': self.loss_boxes,
             'cardinality': self.loss_cardinality
         }
         assert loss in loss_map, f'do you really want to compute {loss} loss?'
@@ -695,7 +717,7 @@ def build_wsod(args):
     if args.masks:
         model = DETRsegm(model, freeze_detr=(args.frozen_weights is not None))
     matcher = build_matcher(args)
-    weight_dict = {'loss_mil': 2, 'loss_refine0': cfg.refine0, 'loss_refine1': cfg.refine1, 'loss_refine2': cfg.refine2}
+    weight_dict = {'loss_mil': args.mil_loss_coef, 'loss_bbox': args.bbox_loss_coef}#, 'loss_refine0': cfg.refine0, 'loss_refine1': cfg.refine1, 'loss_refine2': cfg.refine2}
     weight_dict['loss_giou'] = args.giou_loss_coef
     if args.masks:
         weight_dict["loss_mask"] = args.mask_loss_coef
@@ -707,7 +729,7 @@ def build_wsod(args):
             aux_weight_dict.update({k + f'_{i}': v for k, v in weight_dict.items()})
         weight_dict.update(aux_weight_dict)
 
-    losses = ['labels', 'cardinality']
+    losses = ['labels', 'boxes', 'cardinality']
     if args.masks:
         losses += ["masks"]
 
